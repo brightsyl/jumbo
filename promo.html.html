@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jumbo Poster Shop – Promo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--or:#d94f00;--tx:#fff;--sans:Poppins,system-ui,sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);display:grid;place-items:center;overflow:hidden;font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#stage{position:relative;width:min(100vw,56.25dvh);aspect-ratio:9/16;container-type:inline-size;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#3d1b05,#140a04 55%,#0b0b0b);user-select:none}
+#stage::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:6;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+#bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#bars{position:absolute;top:3cqw;left:3cqw;right:3cqw;display:flex;gap:1.5cqw;z-index:5}
+.bar{flex:1;height:.8cqw;background:#ffffff30;border-radius:1cqw;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--or)}
+.bar.done i{width:100%}
+.bar.act i{animation:fill var(--d) linear forwards}
+@keyframes fill{to{width:100%}}
+#wm{position:absolute;top:7cqw;left:5cqw;z-index:5;font-size:5cqw;letter-spacing:.8cqw;color:#ffffffaa}
+#wm b{color:var(--or);font-weight:400}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3.5cqw;padding:16cqw 7cqw 24cqw;text-align:center;opacity:0;clip-path:inset(0 100% 0 0);transition:opacity .3s,clip-path .55s cubic-bezier(.7,0,.2,1);pointer-events:none}
+.scene.on{opacity:1;clip-path:inset(0);pointer-events:auto}
+h1,h2{margin:0;font-weight:400;line-height:.9;letter-spacing:.5cqw}
+h2{font-size:17cqw;color:var(--or)}
+.w{color:var(--tx)}
+.joke{font:600 4.8cqw/1.35 var(--sans);color:#ffffffd6;max-width:86%}
+.joke em{font-style:normal;color:var(--or)}
+.grid{display:grid;gap:4cqw;width:100%;grid-template-columns:repeat(var(--c,3),1fr);align-items:start}
+.item,.photo{position:relative;overflow:hidden;opacity:0;background:linear-gradient(140deg,hsl(var(--h,22) 90% 48%),#1c0c02 90%)}
+.item{aspect-ratio:var(--ar,3/4)}
+.item img,.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.post .item{border:1.4cqw solid #f3ede2;border-radius:.6cqw;box-shadow:0 3cqw 5cqw #000a}
+.stk .item{border:1.1cqw solid #fff;border-radius:22%;box-shadow:0 2cqw 4cqw #000a}
+.post .item:nth-child(2),.stk .item:nth-child(2){margin-top:7cqw}
+.item:nth-child(odd){--r:-9deg;--r2:-3deg}
+.item:nth-child(even){--r:9deg;--r2:3deg}
+.on .post .item{animation:hang 1.1s both;animation-delay:calc(.5s + var(--i)*.3s)}
+.on .stk .item{animation:slap .5s both;animation-delay:calc(.5s + var(--i)*.35s)}
+@keyframes hang{0%{opacity:0;transform:translateY(-70cqw) rotate(var(--r))}50%{opacity:1;transform:translateY(0) rotate(calc(var(--r2)*-2.5))}78%{opacity:1;transform:rotate(calc(var(--r2)*1.6))}100%{opacity:1;transform:rotate(var(--r2))}}
+@keyframes slap{0%{opacity:0;transform:scale(2.4) rotate(var(--r))}60%{opacity:1;transform:scale(.9) rotate(var(--r2))}100%{opacity:1;transform:rotate(var(--r2))}}
+.photo{width:66%;aspect-ratio:4/5;border:1.4cqw solid #f3ede2;border-radius:2cqw;box-shadow:0 3cqw 6cqw #000b;--r:8deg;--r2:-2deg}
+.on .photo{animation:slap .6s both .4s}
+.on .photo img{animation:zoom 5s ease-out both .5s}
+@keyframes zoom{from{transform:scale(1.18)}to{transform:scale(1)}}
+.pr{display:flex;align-items:baseline;gap:2cqw;opacity:0;line-height:.85}
+.pr small{font-size:7cqw}
+.pr .cnt{font-size:30cqw;color:var(--or);min-width:15cqw}
+.on .pr{animation:tag .6s cubic-bezier(.2,1.5,.4,1) both 1.2s}
+@keyframes tag{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+.rise{opacity:0}
+.on .rise{animation:rise .7s ease-out both;animation-delay:calc(.3s + var(--i,0)*.4s)}
+@keyframes rise{from{opacity:0;transform:translateY(8cqw)}to{opacity:1;transform:none}}
+.shake{display:inline-block}
+.on .shake{animation:rise .7s ease-out both .3s,shk .5s ease-in-out 1.2s 2}
+@keyframes shk{25%{transform:translateX(-2cqw) rotate(-2deg)}75%{transform:translateX(2cqw) rotate(2deg)}}
+.perk{width:100%;box-sizing:border-box;border:.7cqw solid #d94f0099;background:#d94f0014;border-radius:3cqw;padding:4cqw 5cqw;text-align:left}
+.perk b{display:block;font-weight:400;font-size:11cqw;color:var(--or)}
+.perk span{font:500 4.4cqw/1.3 var(--sans);color:#ffffffd0}
+.sizes{display:flex;gap:3cqw}
+.sizes b{font-weight:400;font-size:9cqw;border:.8cqw solid var(--or);padding:1cqw 5cqw;border-radius:1.5cqw}
+.cta{display:block;background:#25d366;color:#04210f;text-decoration:none;font-size:10.5cqw;padding:3cqw 7cqw;border-radius:3cqw;letter-spacing:.4cqw}
+.on .cta{animation:rise .7s ease-out both .8s,pulse 1.4s ease-in-out 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+#start{position:absolute;inset:0;z-index:9;border:0;background:#0b0b0bee;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqw;font:inherit;font-size:14cqw;color:var(--or);cursor:pointer;text-align:center;padding:8cqw}
+#start small{font:500 4.5cqw/1.4 var(--sans);color:#fff9}
+#start.hide{display:none}
+.paused *{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+<div id="stage" role="region" aria-label="Jumbo Poster Shop promo video">
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <button id="start" type="button">▶ TAP TO PLAY<small>Tap the screen again to pause.<br>Start your screen recorder first for a clean video.</small></button>
+  <div id="bars"></div>
+  <div id="wm"></div>
+</div>
+<script>
+/* ================= EDIT HERE =================
+   All words, prices, contacts and picture names live in this block.
+   In any sentence, put a word inside <em>...</em> to make it orange.
+   Pictures: file must be in the "images" folder, named exactly as below + .webp */
+const C={
+ brand:['JUMBO','POSTER SHOP'],
+ whatsappIntl:'254180796958', whatsappShow:'0180796958',
+ handle:'@jumbo_poster_ltd', site:'jumboposters.netlify.app',
+ price:{poster:100, sticker:60, mini:30},
+ images:{
+  p:['Playboi','Miketyson','Rockstar','Godsplan'],
+  s:['Victimsofmadness','Ghettonairobi','Vogue','ParentalAdvisory','Spongebob','Patrick','Funny','Monalisa','Football','Discipline','Girly','Weekend','Popcaan','Nissan','Frank','Privacy','McQueen'],
+  m:['Manly','Ladylike'],
+  client:'client1'
+ },
+ text:{
+  hook:'BARE WALLS?',
+  hookJoke:'Chuka University comrades, your room called. It wants <em>a glow-up</em>.',
+  posters:'POSTERS', postersJoke:'Cheaper than lunch. <em>Looks better than lunch.</em>',
+  stickers:'STICKERS', stickersJoke:'Cover the cracked laptop lid. <em>Gain +10 confidence.</em>',
+  mini:'MINI STICKERS', miniJoke:'Yes, thirty bob. <em>Even chai costs more.</em>',
+  wall:'MINI STICKERS CAN CHANGE YOUR ROOM TO SOMETHING <span class="w">LIKE THIS</span>', wallJoke:'Laptop, phone, bottle, notebook. <em>Nothing stays plain.</em>',
+  free:'FREE',
+  delivery:'DELIVERY', deliveryText:'For Chuka University comrades. You stay in bed, we do the walking.',
+  setup:'STICKER SETUP', setupText:'We stick it on. You take the credit.',
+  custom:'DO YOU WANT YOUR OWN PHOTO AS A <span class="w">STICKER?</span>', customJoke:'Send it. We will not judge. <em>(Much.)</em>',
+  sizes:['A4','A3','A2'], sizesJoke:'Pick a size. Your design, our printer.',
+  cta1:'YOUR WALL', cta2:'IS WAITING.',
+  comrades:'Made for Chuka University comrades.',
+  ctaJoke:'Order now. Do not keep it waiting. <em>It gets emotional.</em>'
+ }
+};
+/* ================= END OF EDIT AREA ================= */
+
+const $=(s,r=document)=>r.querySelector(s), stage=$('#stage'), T=C.text, P=C.price;
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const frames=(pool,n,ar)=>Array.from({length:n},(_,i)=>`<div class="item" style="--i:${i};--h:${18+(i*11+n*7)%22};--ar:${ar}" data-pool="${pool}"><img alt="" style="display:none"></div>`).join('');
+const price=(n,u)=>`<div class="pr"><small>KES</small><span class="cnt" data-to="${n}">0</span><small>${u}</small></div>`;
+const joke=(t,i)=>`<div class="joke rise" style="--i:${i}">${t}</div>`;
+
+const S=[
+ {d:5200,h:`<h1 class="w shake" style="font-size:24cqw">${T.hook}</h1>${joke(T.hookJoke,3)}<h1 class="rise" style="font-size:30cqw;color:var(--or);--i:6;margin-top:6cqw">${C.brand[0]}</h1><h1 class="w rise" style="font-size:12cqw;--i:7;letter-spacing:2cqw">${C.brand[1]}</h1>`},
+ {d:5600,h:`<h2 class="rise">${T.posters}</h2><div class="grid post">${frames('p',3,'3/4')}</div>${price(P.poster,'each')}${joke(T.postersJoke,8)}`},
+ {d:5400,h:`<h2 class="rise">${T.stickers}</h2><div class="grid stk">${frames('s',3,'1/1')}</div>${price(P.sticker,'each')}${joke(T.stickersJoke,8)}`},
+ {d:4600,h:`<h2 class="rise">${T.mini}</h2><div class="grid stk" style="--c:2;width:70%">${frames('m',2,'1/1')}</div>${price(P.mini,'each')}${joke(T.miniJoke,7)}`},
+ {d:5600,h:`<h2 class="rise" style="font-size:10cqw">${T.wall}</h2><div class="photo"><img alt="" style="display:none"></div>${joke(T.wallJoke,3)}`},
+ {d:5600,h:`<h2 class="rise" style="font-size:34cqw;line-height:.8">${T.free}<span class="w">!</span></h2><div class="perk rise" style="--i:2"><b>${T.delivery}</b><span>${T.deliveryText}</span></div><div class="perk rise" style="--i:5"><b>${T.setup}</b><span>${T.setupText}</span></div>`},
+ {d:5000,h:`<h2 class="rise" style="font-size:13cqw">${T.custom}</h2>${joke(T.customJoke,2)}<div class="sizes rise" style="--i:4">${T.sizes.map(s=>`<b>${s}</b>`).join('')}</div>${joke(T.sizesJoke,6)}`},
+ {d:7000,h:`<h2 class="rise" style="font-size:22cqw">${T.cta1}<br><span class="w">${T.cta2}</span></h2><a class="cta" href="https://wa.me/${C.whatsappIntl}" target="_blank" rel="noopener">WhatsApp ${C.whatsappShow}</a>${joke(`<em>${T.comrades}</em>`,4)}${joke(T.ctaJoke,5)}<div class="rise" style="--i:7;font-size:8cqw;letter-spacing:.8cqw">${C.handle}</div><div class="rise" style="--i:8;font:500 4.2cqw var(--sans);color:#fffb">${C.site}</div>`}
+];
+
+/* ---- build ---- */
+$('#wm').innerHTML=`${C.brand[0]} <b>${C.brand[1]}</b>`;
+const barsEl=$('#bars');
+S.forEach(s=>{
+ barsEl.insertAdjacentHTML('beforeend',`<div class="bar" style="--d:${s.d}ms"><i></i></div>`);
+ s.e=document.createElement('div');s.e.className='scene';s.e.innerHTML=s.h;stage.appendChild(s.e);
+});
+const bars=[...barsEl.children];
+
+/* ---- pictures (loaded one scene ahead so they are ready when it appears) ---- */
+function setImg(im,name){im.onload=()=>im.style.display='';im.onerror=()=>im.style.display='none';im.src=`images/${name}.webp`}
+function fill(sc){
+ sc.querySelectorAll('.grid').forEach(g=>{const its=[...g.children],pool=shuffle(C.images[its[0].dataset.pool]);its.forEach((it,k)=>setImg($('img',it),pool[k%pool.length]))});
+ sc.querySelectorAll('.photo').forEach(p=>setImg($('img',p),C.images.client));
+}
+
+/* ---- snakes (dim, two heads, blunt tail) ---- */
+const cv=$('#bg'),cx=cv.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2);let W=1,H=1;
+function fit(){W=stage.clientWidth;H=stage.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+new ResizeObserver(fit).observe(stage);fit();
+function spawn(s,any){s.tr=[];
+ if(any){s.x=rnd(0,W);s.y=rnd(0,H);s.a=rnd(0,6.28);return}
+ const e=Math.random()*4|0;
+ if(e==0){s.x=-30;s.y=rnd(0,H);s.a=rnd(-.6,.6)}
+ else if(e==1){s.x=W+30;s.y=rnd(0,H);s.a=Math.PI+rnd(-.6,.6)}
+ else if(e==2){s.y=-30;s.x=rnd(0,W);s.a=1.57+rnd(-.6,.6)}
+ else{s.y=H+30;s.x=rnd(0,W);s.a=-1.57+rnd(-.6,.6)}
+}
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const snakes=calm?[]:Array.from({length:8},()=>{const s={len:36,ph:rnd(0,6),sp:W*rnd(.004,.008),r:W*rnd(.009,.016),w:rnd(.07,.13)};spawn(s,true);return s});
+function drawSnakes(){
+ cx.clearRect(0,0,W,H);
+ for(const s of snakes){
+  if(running){
+   const h=s.a+Math.sin(s.ph)*.8;s.ph+=s.w;s.x+=Math.cos(h)*s.sp;s.y+=Math.sin(h)*s.sp;
+   s.tr.push([s.x,s.y]);if(s.tr.length>s.len)s.tr.shift();
+   if(s.x<-60||s.x>W+60||s.y<-60||s.y>H+60)spawn(s);
+  }
+  s.tr.forEach((q,i)=>{const t=(i+1)/s.tr.length;cx.fillStyle=`rgba(130,60,15,${.03+.14*t})`;cx.beginPath();cx.arc(q[0],q[1],s.r*(.85+.15*t),0,6.283);cx.fill()});
+  const n=s.tr.length;
+  if(n>2){const a=s.tr[n-1],b=s.tr[n-3],d=Math.atan2(a[1]-b[1],a[0]-b[0]);cx.fillStyle='rgba(130,60,15,.2)';
+   for(const k of[-1,1]){const o=d+k*.5;cx.beginPath();cx.arc(a[0]+Math.cos(o)*s.r*1.6,a[1]+Math.sin(o)*s.r*1.6,s.r*1.15,0,6.283);cx.fill()}}
+ }
+}
+
+/* ---- player: one clock that stops when paused, so timers, bars and counters stay in sync ---- */
+let running=false,started=false,clock=0,last=performance.now(),sceneStart=0,cur=0,counters=[];
+function show(k){
+ cur=k%S.length;sceneStart=clock;
+ S.forEach((s,j)=>s.e.classList.toggle('on',j===cur));
+ fill(S[(cur+1)%S.length].e);
+ counters=[...S[cur].e.querySelectorAll('.cnt')].map(el=>({el,to:+el.dataset.to,at:clock+1300}));
+ counters.forEach(c=>c.el.textContent=0);
+ bars.forEach((b,j)=>{b.classList.remove('act');void b.offsetWidth;b.classList.toggle('done',j<cur);if(j===cur)b.classList.add('act')});
+}
+function frame(now){
+ if(running){
+  clock+=now-last;
+  counters=counters.filter(c=>{const p=Math.min(1,Math.max(0,(clock-c.at)/900));c.el.textContent=Math.round(c.to*(1-(1-p)**3));return p<1});
+  if(clock-sceneStart>=S[cur].d)show(cur+1);
+ }
+ last=now;drawSnakes();requestAnimationFrame(frame);
+}
+const setRunning=r=>{running=r;stage.classList.toggle('paused',!r)};
+function toggle(){
+ if(!started){started=true;$('#start').classList.add('hide');fill(S[0].e);show(0);setRunning(true);return}
+ setRunning(!running);
+}
+stage.addEventListener('click',e=>{if(!e.target.closest('a'))toggle()});
+addEventListener('keydown',e=>{if(started&&e.code==='Space'){e.preventDefault();toggle()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&running)setRunning(false)});
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
